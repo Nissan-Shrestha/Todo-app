@@ -19,16 +19,6 @@ This app uses **Provider** to manage state:
 
 > Note: Tasks are not persisted and will reset when the app restarts.
 
-## Project Structure
-
-lib/
-├── models/
-│   └── task.dart
-├── providers/
-│   └── todo_provider.dart
-├── screens/
-│   └── home_screen.dart
-└── main.dart
 
 ## How It Works
 
