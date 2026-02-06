@@ -1,16 +1,58 @@
-# todo_app
+# Flutter Todo App
 
-A new Flutter project.
+A simple Todo application built with **Flutter** using **Provider** for state management.
+
+## Features
+
+- Add new tasks
+- Edit tasks via popup dialog
+- Delete tasks
+- Mark tasks as completed with a checkbox
+- Form validation (empty input & max length)
+- Clean and simple UI
+
+## State Management
+
+This app uses **Provider** to manage state:
+- Tasks are stored in memory
+- UI updates automatically using `notifyListeners()`
+
+> Note: Tasks are not persisted and will reset when the app restarts.
+
+## Project Structure
+
+lib/
+├── models/
+│   └── task.dart
+├── providers/
+│   └── todo_provider.dart
+├── screens/
+│   └── home_screen.dart
+└── main.dart
+
+## How It Works
+
+- `TodoProvider` manages the list of tasks
+- UI listens to provider changes
+- All task actions (add, edit, delete, toggle) go through the provider
+- Editing a task opens a popup dialog with its own form field
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone the repository
+2. Run `flutter pub get`
+3. Run the app using `flutter run`
 
-A few resources to get you started if this is your first Flutter project:
+## Dependencies
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+provider: ^6.0.0
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screens
+
+- Home screen with task list
+- Popup menu on each task for edit/delete
+- Edit task dialog with validation
+
+## Author
+
+Built as a learning project to understand Flutter UI, Provider state management, and basic CRUD operations.
