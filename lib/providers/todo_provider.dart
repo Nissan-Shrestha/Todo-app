@@ -24,5 +24,6 @@ class TodoProvider extends ChangeNotifier {
 
   void deleteTask(String id) {
     _tasks.removeWhere((t) => t.id == id);
+    notifyListeners();
   }
 }
