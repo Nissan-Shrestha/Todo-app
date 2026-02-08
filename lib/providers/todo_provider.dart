@@ -5,8 +5,17 @@ class TodoProvider extends ChangeNotifier {
   final List<Task> _tasks = [];
   List<Task> get tasks => _tasks;
 
-  void addTask(String title) {
-    _tasks.add(Task(id: DateTime.now().toString(), title: title));
+  final TextEditingController taskController = TextEditingController();
+  final GlobalKey<FormState> addFormKey = GlobalKey<FormState>();
+
+  void addTask() {
+    if (!addFormKey.currentState!.validate()) return;
+
+    _tasks.add(
+      Task(id: DateTime.now().toString(), title: taskController.text.trim()),
+    );
+
+    taskController.clear();
     notifyListeners();
   }
 
@@ -25,5 +34,11 @@ class TodoProvider extends ChangeNotifier {
   void deleteTask(String id) {
     _tasks.removeWhere((t) => t.id == id);
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    taskController.dispose();
+    super.dispose();
   }
 }
